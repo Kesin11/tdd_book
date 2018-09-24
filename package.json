@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "test": "npm run test",
+    "test:watch": "npm run test:watch",
+    "jest": "jest",
+    "jest:watch": "jest --watch",
+    "mocha": "mocha test",
+    "mocha:watch": "mocha --watch test"
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +17,7 @@
   "devDependencies": {
     "@babel/core": "7.1.0",
     "babel-core": "7.0.0-bridge.0",
-    "jest": "23.6.0"
+    "jest": "23.6.0",
+    "mocha": "5.2.0"
   }
 }
