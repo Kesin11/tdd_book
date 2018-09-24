@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test",
-    "test:watch": "npm run test:watch",
+    "test": "npm run jest",
+    "test:watch": "npm run jest:watch",
     "jest": "jest",
     "jest:watch": "jest --watch",
     "mocha": "mocha test",
