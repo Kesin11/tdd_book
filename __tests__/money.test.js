@@ -10,6 +10,9 @@ test('multiplication', () => {
 test('equality', () => {
   expect(new Dollar(5)).toEqual(new Dollar(5))
   expect(new Dollar(5)).not.toEqual(new Dollar(6))
+
+  expect(new Franc(5)).toEqual(new Franc(5))
+  expect(new Franc(5)).not.toEqual(new Franc(6))
 });
 
 test('franc multiplication', () => {
