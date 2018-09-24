@@ -9,3 +9,8 @@ test('multiplication', () => {
   product = five.times(3)
   expect(product.amount).toBe(15)
 });
+
+test('equality', () => {
+  expect(new Dollar(5)).toEqual(new Dollar(5))
+  expect(new Dollar(5)).not.toEqual(new Dollar(6))
+});
