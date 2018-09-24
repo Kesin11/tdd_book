@@ -13,6 +13,9 @@ test('equality', () => {
 
   expect(new Franc(5)).toEqual(new Franc(5))
   expect(new Franc(5)).not.toEqual(new Franc(6))
+
+  expect(new Franc(5)).not.toEqual(new Dollar(5))
+  // jsにはクラス自身にeqalsメソッドを定義できないので、区別するためのプロパティを追加するしかない
 });
 
 test('franc multiplication', () => {
