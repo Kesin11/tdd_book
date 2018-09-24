@@ -81,3 +81,27 @@ test('mixed addition', () => {
 
   expect(result).toEqual(Money.dollar(10))
 });
+
+test('sum plus money', () => {
+  const fiveBucks = Money.dollar(5)
+  const tenFrancs = Money.franc(10)
+  const bank = new Bank()
+  bank.addRate("CHF", "USD", 2)
+  const sum = new Sum(fiveBucks, tenFrancs).plus(fiveBucks)
+  const result = bank.reduce(sum, "USD")
+
+  expect(result).toEqual(Money.dollar(15))
+  
+});
+
+test('sum times', () => {
+  const fiveBucks = Money.dollar(5)
+  const tenFrancs = Money.franc(10)
+  const bank = new Bank()
+  bank.addRate("CHF", "USD", 2)
+  const sum = new Sum(fiveBucks, tenFrancs).times(2)
+  const result = bank.reduce(sum, "USD")
+
+  expect(result).toEqual(Money.dollar(20))
+  
+});
