@@ -1,26 +1,26 @@
-const { Dollar, Franc } = require('../lib/dollar')
+const { Money, Dollar, Franc } = require('../lib/money')
 
 test('multiplication', () => {
-  const five = new Dollar(5)
+  const five = Money.dollar(5)
 
-  expect(five.times(2)).toEqual(new Dollar(10))
-  expect(five.times(3)).toEqual(new Dollar(15))
+  expect(five.times(2)).toEqual(Money.dollar(10))
+  expect(five.times(3)).toEqual(Money.dollar(15))
 });
 
 test('equality', () => {
-  expect(new Dollar(5)).toEqual(new Dollar(5))
-  expect(new Dollar(5)).not.toEqual(new Dollar(6))
+  expect(Money.dollar(5)).toEqual(Money.dollar(5))
+  expect(Money.dollar(5)).not.toEqual(Money.dollar(6))
 
-  expect(new Franc(5)).toEqual(new Franc(5))
-  expect(new Franc(5)).not.toEqual(new Franc(6))
+  expect(Money.franc(5)).toEqual(Money.franc(5))
+  expect(Money.franc(5)).not.toEqual(Money.franc(6))
 
-  expect(new Franc(5)).not.toEqual(new Dollar(5))
+  expect(Money.franc(5)).not.toEqual(Money.dollar(5))
   // jsにはクラス自身にeqalsメソッドを定義できないので、区別するためのプロパティを追加するしかない
 });
 
 test('franc multiplication', () => {
-  const five = new Franc(5)
+  const five = Money.franc(5)
 
-  expect(five.times(2)).toEqual(new Franc(10))
-  expect(five.times(3)).toEqual(new Franc(15))
+  expect(five.times(2)).toEqual(Money.franc(10))
+  expect(five.times(3)).toEqual(Money.franc(15))
 });
