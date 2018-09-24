@@ -1,4 +1,4 @@
-const { Money } = require('../lib/money')
+const { Money, Bank } = require('../lib/money')
 
 test('multiplication', () => {
   const five = Money.dollar(5)
@@ -25,4 +25,12 @@ test('franc multiplication', () => {
 test('currency', () => {
   expect(Money.dollar(1).currency()).toBe("USD")
   expect(Money.franc(1).currency()).toBe("CHF")
+});
+
+test('simple addition', () => {
+  const five = Money.dollar(5)
+  const sum = five.plus(five)
+  const bank = new Bank()
+  const reduced = bank.reduce(sum, "USD")
+  expect(reduced).toEqual(Money.dollar(10))
 });
