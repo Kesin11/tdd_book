@@ -1,4 +1,4 @@
-const { Money, Dollar, Franc } = require('../lib/money')
+const { Money } = require('../lib/money')
 
 test('multiplication', () => {
   const five = Money.dollar(5)
@@ -10,9 +10,6 @@ test('multiplication', () => {
 test('equality', () => {
   expect(Money.dollar(5)).toEqual(Money.dollar(5))
   expect(Money.dollar(5)).not.toEqual(Money.dollar(6))
-
-  expect(Money.franc(5)).toEqual(Money.franc(5))
-  expect(Money.franc(5)).not.toEqual(Money.franc(6))
 
   expect(Money.franc(5)).not.toEqual(Money.dollar(5))
   // jsにはクラス自身にeqalsメソッドを定義できないので、区別するためのプロパティを追加するしかない
@@ -28,8 +25,4 @@ test('franc multiplication', () => {
 test('currency', () => {
   expect(Money.dollar(1).currency()).toBe("USD")
   expect(Money.franc(1).currency()).toBe("CHF")
-});
-
-test('different class equality', () => {
-  expect(new Money(10, "CHF")).toEqual(new Franc(10, "CHF"))
 });
